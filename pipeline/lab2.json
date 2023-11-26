@@ -16,19 +16,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"command": "cmd /C python data_transform.py",
-					"resourceLinkedService": {
-						"referenceName": "AzureBlobStorage1",
-						"type": "LinkedServiceReference"
-					},
 					"folderPath": "input",
 					"referenceObjects": {
 						"linkedServices": [],
 						"datasets": []
 					}
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureBatch1",
-					"type": "LinkedServiceReference"
 				}
 			},
 			{
@@ -62,30 +54,11 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "Combined_Stock_Data",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					}
 				]
@@ -111,10 +84,6 @@
 				"userProperties": [],
 				"typeProperties": {
 					"notebookPath": "/Users/sophie-manuella.siake-tchouamou@efrei.net/lab2-databricks-notebook"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricks_lab2",
-					"type": "LinkedServiceReference"
 				}
 			}
 		],
