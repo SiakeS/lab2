@@ -113,7 +113,7 @@
 					"notebookPath": "/Users/sophie-manuella.siake-tchouamou@efrei.net/lab2-databricks-notebook"
 				},
 				"linkedServiceName": {
-					"referenceName": "AzureDatabricks1",
+					"referenceName": "AzureDatabricks_lab2",
 					"type": "LinkedServiceReference"
 				}
 			}
