@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "lab2datafact"
+		},
+		"AzureBatch1_accessKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureBatch1_properties_typeProperties_batchUri": {
+			"value": "https://lab2.francecentral.batch.azure.com"
+		},
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"value": "lab2"
+		},
+		"AzureBatch1_properties_typeProperties_accountName": {
+			"value": "lab2"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://storageaccountlab2.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
