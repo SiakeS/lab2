@@ -2,7 +2,7 @@
 	"name": "Combined_Stock_Data",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "DataLakeStorage_lab2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
