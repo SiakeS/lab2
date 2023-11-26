@@ -1,0 +1,9 @@
+{
+	"name": "lab2datafact",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ad74f863-8b5d-44c4-b80a-91ca8ae67749",
+		"tenantId": "413600cf-bd4e-4c7c-8a61-69e73cddf731"
+	}
+}
