@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "transform_data",
+				"name": "Custom",
 				"type": "Custom",
 				"dependsOn": [],
 				"policy": {
@@ -32,11 +32,11 @@
 				}
 			},
 			{
-				"name": "Copy Activity",
+				"name": "Copy data",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "transform_data",
+						"activity": "Custom",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -79,7 +79,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Combined_Stock_Data",
+						"referenceName": "combined_stock_data",
 						"type": "DatasetReference"
 					}
 				],
@@ -91,11 +91,11 @@
 				]
 			},
 			{
-				"name": "Notebook-lab1",
+				"name": "Notebook-lab2",
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "Copy Activity",
+						"activity": "Copy data",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -110,7 +110,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/sophie-manuella.siake-tchouamou@efrei.net/lab2-databricks-notebook"
+					"notebookPath": "/Users/sophie-manuella.siake-tchouamou@efrei.net/lab2"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks_lab2",
@@ -118,6 +118,8 @@
 				}
 			}
 		],
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2023-11-27T16:00:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

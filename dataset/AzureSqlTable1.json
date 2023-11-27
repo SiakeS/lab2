@@ -2,7 +2,7 @@
 	"name": "AzureSqlTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "AzureSqlDatabase_lab2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -43,10 +43,6 @@
 				"precision": 15
 			},
 			{
-				"name": "company_name",
-				"type": "varchar"
-			},
-			{
 				"name": "stock_name",
 				"type": "varchar"
 			}
@@ -55,5 +51,6 @@
 			"schema": "dbo",
 			"table": "combined_stock_data"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

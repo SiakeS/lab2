@@ -1,0 +1,9 @@
+{
+	"name": "lab2-ADF",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f62d34d4-9b5f-4399-b8ca-62c1e355efb7",
+		"tenantId": "413600cf-bd4e-4c7c-8a61-69e73cddf731"
+	}
+}
