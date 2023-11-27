@@ -11,13 +11,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
-		"AzureDataLakeStorage1_accountKey": {
+		"AzureBlobStorage_lab2_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
-		},
-		"AzureDatabricks1_accessToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage_lab2'"
 		},
 		"AzureDatabricks_lab2_accessToken": {
 			"type": "secureString",
@@ -27,23 +23,27 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
-		"AzureBatch1_accessKey": {
+		"DataLakeStorage_lab2_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accessKey' of 'AzureBatch1'"
+			"metadata": "Secure string for 'accountKey' of 'DataLakeStorage_lab2'"
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
+		"AzureBatch_lab2_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'AzureBatch_lab2'"
+		},
+		"DataLakeStorage_lab2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storageaccountlab2.dfs.core.windows.net/"
 		},
-		"AzureBatch1_properties_typeProperties_batchUri": {
+		"AzureBatch_lab2_properties_typeProperties_batchUri": {
 			"type": "string",
 			"defaultValue": "https://lab2.francecentral.batch.azure.com"
 		},
-		"AzureBatch1_properties_typeProperties_poolName": {
+		"AzureBatch_lab2_properties_typeProperties_poolName": {
 			"type": "string",
 			"defaultValue": "lab2"
 		},
-		"AzureBatch1_properties_typeProperties_accountName": {
+		"AzureBatch_lab2_properties_typeProperties_accountName": {
 			"type": "string",
 			"defaultValue": "lab2"
 		}
@@ -66,43 +66,14 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage_lab2')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureBlobFS",
+				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricks",
-				"typeProperties": {
-					"domain": "https://adb-2621065796891473.13.azuredatabricks.net",
-					"accessToken": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDatabricks1_accessToken')]"
-					},
-					"newClusterNodeType": "Standard_DS3_v2",
-					"newClusterNumOfWorker": "1",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "12.2.x-scala2.12",
-					"clusterOption": "Fixed",
-					"newClusterInitScripts": []
+					"connectionString": "[parameters('AzureBlobStorage_lab2_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -120,7 +91,7 @@
 						"type": "SecureString",
 						"value": "[parameters('AzureDatabricks_lab2_accessToken')]"
 					},
-					"newClusterNodeType": "Standard_DS14_v2",
+					"newClusterNodeType": "Standard_DS3_v2",
 					"newClusterNumOfWorker": "1",
 					"newClusterSparkEnvVars": {
 						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
@@ -141,6 +112,23 @@
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureSqlDatabase1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DataLakeStorage_lab2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('DataLakeStorage_lab2_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('DataLakeStorage_lab2_accountKey')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -215,7 +203,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "DataLakeStorage_lab2",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -267,32 +255,32 @@
 				]
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/DataLakeStorage_lab2')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureBatch1')]",
+			"name": "[concat(parameters('factoryName'), '/AzureBatch_lab2')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"type": "AzureBatch",
 				"typeProperties": {
-					"batchUri": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]",
-					"poolName": "[parameters('AzureBatch1_properties_typeProperties_poolName')]",
-					"accountName": "[parameters('AzureBatch1_properties_typeProperties_accountName')]",
+					"batchUri": "[parameters('AzureBatch_lab2_properties_typeProperties_batchUri')]",
+					"poolName": "[parameters('AzureBatch_lab2_properties_typeProperties_poolName')]",
+					"accountName": "[parameters('AzureBatch_lab2_properties_typeProperties_accountName')]",
 					"linkedServiceName": {
-						"referenceName": "AzureBlobStorage1",
+						"referenceName": "AzureBlobStorage_lab2",
 						"type": "LinkedServiceReference"
 					},
 					"accessKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureBatch1_accessKey')]"
+						"value": "[parameters('AzureBatch_lab2_accessKey')]"
 					}
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_lab2')]"
 			]
 		},
 		{
@@ -314,9 +302,9 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"command": "cmd /C python data_transform.py",
+							"command": "cmd /c \"python data_transform.py\"",
 							"resourceLinkedService": {
-								"referenceName": "AzureBlobStorage1",
+								"referenceName": "AzureBlobStorage_lab2",
 								"type": "LinkedServiceReference"
 							},
 							"folderPath": "input",
@@ -326,7 +314,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "AzureBatch1",
+							"referenceName": "AzureBatch_lab2",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -425,8 +413,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_lab2')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBatch_lab2')]",
 				"[concat(variables('factoryId'), '/datasets/Combined_Stock_Data')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks_lab2')]"
@@ -451,9 +439,9 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"command": "cmd /C python data_transform.py",
+							"command": "cmd /c \"python data_transform.py\"",
 							"resourceLinkedService": {
-								"referenceName": "AzureBlobStorage1",
+								"referenceName": "AzureBlobStorage_lab2",
 								"type": "LinkedServiceReference"
 							},
 							"folderPath": "input",
@@ -463,7 +451,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "AzureBatch1",
+							"referenceName": "AzureBatch_lab2",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -527,33 +515,6 @@
 								"parameters": {}
 							}
 						]
-					},
-					{
-						"name": "Notebook-lab1",
-						"type": "DatabricksNotebook",
-						"dependsOn": [
-							{
-								"activity": "Copy Activity",
-								"dependencyConditions": [
-									"Completed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"notebookPath": "/Users/sophie-manuella.siake-tchouamou@efrei.net/lab2-databricks-notebook"
-						},
-						"linkedServiceName": {
-							"referenceName": "AzureDatabricks1",
-							"type": "LinkedServiceReference"
-						}
 					}
 				],
 				"policy": {
@@ -562,11 +523,10 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_lab2')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBatch_lab2')]",
 				"[concat(variables('factoryId'), '/datasets/Combined_Stock_Data')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks1')]"
+				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]"
 			]
 		}
 	]

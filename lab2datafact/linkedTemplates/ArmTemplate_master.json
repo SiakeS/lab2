@@ -7,21 +7,17 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "lab2datafact"
 		},
-		"AzureBatch1_accessKey": {
+		"AzureBatch_lab2_accessKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accessKey' of 'AzureBatch1'"
+			"metadata": "Secure string for 'accessKey' of 'AzureBatch_lab2'"
 		},
 		"AzureBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
-		"AzureDataLakeStorage1_accountKey": {
+		"AzureBlobStorage_lab2_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
-		},
-		"AzureDatabricks1_accessToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage_lab2'"
 		},
 		"AzureDatabricks_lab2_accessToken": {
 			"type": "secureString",
@@ -31,19 +27,23 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
-		"AzureBatch1_properties_typeProperties_batchUri": {
+		"DataLakeStorage_lab2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DataLakeStorage_lab2'"
+		},
+		"AzureBatch_lab2_properties_typeProperties_batchUri": {
 			"type": "string",
 			"defaultValue": "https://lab2.francecentral.batch.azure.com"
 		},
-		"AzureBatch1_properties_typeProperties_poolName": {
+		"AzureBatch_lab2_properties_typeProperties_poolName": {
 			"type": "string",
 			"defaultValue": "lab2"
 		},
-		"AzureBatch1_properties_typeProperties_accountName": {
+		"AzureBatch_lab2_properties_typeProperties_accountName": {
 			"type": "string",
 			"defaultValue": "lab2"
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
+		"DataLakeStorage_lab2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storageaccountlab2.dfs.core.windows.net/"
 		},
@@ -77,11 +77,8 @@
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
-					"AzureDataLakeStorage1_accountKey": {
-						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
-					},
-					"AzureDatabricks1_accessToken": {
-						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					"AzureBlobStorage_lab2_connectionString": {
+						"value": "[parameters('AzureBlobStorage_lab2_connectionString')]"
 					},
 					"AzureDatabricks_lab2_accessToken": {
 						"value": "[parameters('AzureDatabricks_lab2_accessToken')]"
@@ -89,20 +86,23 @@
 					"AzureSqlDatabase1_connectionString": {
 						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
 					},
-					"AzureBatch1_accessKey": {
-						"value": "[parameters('AzureBatch1_accessKey')]"
+					"DataLakeStorage_lab2_accountKey": {
+						"value": "[parameters('DataLakeStorage_lab2_accountKey')]"
 					},
-					"AzureDataLakeStorage1_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					"AzureBatch_lab2_accessKey": {
+						"value": "[parameters('AzureBatch_lab2_accessKey')]"
 					},
-					"AzureBatch1_properties_typeProperties_batchUri": {
-						"value": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]"
+					"DataLakeStorage_lab2_properties_typeProperties_url": {
+						"value": "[parameters('DataLakeStorage_lab2_properties_typeProperties_url')]"
 					},
-					"AzureBatch1_properties_typeProperties_poolName": {
-						"value": "[parameters('AzureBatch1_properties_typeProperties_poolName')]"
+					"AzureBatch_lab2_properties_typeProperties_batchUri": {
+						"value": "[parameters('AzureBatch_lab2_properties_typeProperties_batchUri')]"
 					},
-					"AzureBatch1_properties_typeProperties_accountName": {
-						"value": "[parameters('AzureBatch1_properties_typeProperties_accountName')]"
+					"AzureBatch_lab2_properties_typeProperties_poolName": {
+						"value": "[parameters('AzureBatch_lab2_properties_typeProperties_poolName')]"
+					},
+					"AzureBatch_lab2_properties_typeProperties_accountName": {
+						"value": "[parameters('AzureBatch_lab2_properties_typeProperties_accountName')]"
 					}
 				}
 			},

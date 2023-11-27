@@ -5,16 +5,13 @@
 		"factoryName": {
 			"value": "lab2datafact"
 		},
-		"AzureBatch1_accessKey": {
+		"AzureBatch_lab2_accessKey": {
 			"value": ""
 		},
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_accountKey": {
-			"value": ""
-		},
-		"AzureDatabricks1_accessToken": {
+		"AzureBlobStorage_lab2_connectionString": {
 			"value": ""
 		},
 		"AzureDatabricks_lab2_accessToken": {
@@ -23,16 +20,19 @@
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
-		"AzureBatch1_properties_typeProperties_batchUri": {
+		"DataLakeStorage_lab2_accountKey": {
+			"value": ""
+		},
+		"AzureBatch_lab2_properties_typeProperties_batchUri": {
 			"value": "https://lab2.francecentral.batch.azure.com"
 		},
-		"AzureBatch1_properties_typeProperties_poolName": {
+		"AzureBatch_lab2_properties_typeProperties_poolName": {
 			"value": "lab2"
 		},
-		"AzureBatch1_properties_typeProperties_accountName": {
+		"AzureBatch_lab2_properties_typeProperties_accountName": {
 			"value": "lab2"
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
+		"DataLakeStorage_lab2_properties_typeProperties_url": {
 			"value": "https://storageaccountlab2.dfs.core.windows.net/"
 		}
 	}
