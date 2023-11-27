@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "lab2-ADF"
+		},
+		"AzureBatch_lab2_accessKey": {
+			"value": ""
+		},
+		"AzureBlobStorage_lab2_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_lab2_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks_lab2_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase_lab2_connectionString": {
+			"value": ""
+		},
+		"DataLakeStorage_lab2_accountKey": {
+			"value": ""
+		},
+		"AzureBatch_lab2_properties_typeProperties_batchUri": {
+			"value": "https://lab2.francecentral.batch.azure.com"
+		},
+		"AzureBatch_lab2_properties_typeProperties_poolName": {
+			"value": "lab2-pool"
+		},
+		"AzureBatch_lab2_properties_typeProperties_accountName": {
+			"value": "lab2"
+		},
+		"AzureDataLakeStorage_lab2_properties_typeProperties_url": {
+			"value": "https://lab2dl.dfs.core.windows.net/"
+		},
+		"AzureDatabricks_lab2_properties_typeProperties_existingClusterId": {
+			"value": "1127-142516-x5nykkja"
+		},
+		"DataLakeStorage_lab2_properties_typeProperties_url": {
+			"value": "https://storageaccountlab2.dfs.core.windows.net/"
+		}
+	}
+}

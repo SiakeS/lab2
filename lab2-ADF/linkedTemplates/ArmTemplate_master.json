@@ -1,0 +1,133 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "lab2-ADF"
+		},
+		"AzureBatch_lab2_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'AzureBatch_lab2'"
+		},
+		"AzureBlobStorage_lab2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage_lab2'"
+		},
+		"AzureDataLakeStorage_lab2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage_lab2'"
+		},
+		"AzureDatabricks_lab2_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_lab2'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase_lab2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_lab2'"
+		},
+		"DataLakeStorage_lab2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DataLakeStorage_lab2'"
+		},
+		"AzureBatch_lab2_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://lab2.francecentral.batch.azure.com"
+		},
+		"AzureBatch_lab2_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "lab2-pool"
+		},
+		"AzureBatch_lab2_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "lab2"
+		},
+		"AzureDataLakeStorage_lab2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://lab2dl.dfs.core.windows.net/"
+		},
+		"AzureDatabricks_lab2_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1127-142516-x5nykkja"
+		},
+		"DataLakeStorage_lab2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storageaccountlab2.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "lab2-ADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage_lab2_connectionString": {
+						"value": "[parameters('AzureBlobStorage_lab2_connectionString')]"
+					},
+					"AzureDataLakeStorage_lab2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage_lab2_accountKey')]"
+					},
+					"AzureDatabricks_lab2_accessToken": {
+						"value": "[parameters('AzureDatabricks_lab2_accessToken')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureSqlDatabase_lab2_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_lab2_connectionString')]"
+					},
+					"DataLakeStorage_lab2_accountKey": {
+						"value": "[parameters('DataLakeStorage_lab2_accountKey')]"
+					},
+					"AzureBatch_lab2_accessKey": {
+						"value": "[parameters('AzureBatch_lab2_accessKey')]"
+					},
+					"AzureDataLakeStorage_lab2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage_lab2_properties_typeProperties_url')]"
+					},
+					"AzureDatabricks_lab2_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricks_lab2_properties_typeProperties_existingClusterId')]"
+					},
+					"DataLakeStorage_lab2_properties_typeProperties_url": {
+						"value": "[parameters('DataLakeStorage_lab2_properties_typeProperties_url')]"
+					},
+					"AzureBatch_lab2_properties_typeProperties_batchUri": {
+						"value": "[parameters('AzureBatch_lab2_properties_typeProperties_batchUri')]"
+					},
+					"AzureBatch_lab2_properties_typeProperties_poolName": {
+						"value": "[parameters('AzureBatch_lab2_properties_typeProperties_poolName')]"
+					},
+					"AzureBatch_lab2_properties_typeProperties_accountName": {
+						"value": "[parameters('AzureBatch_lab2_properties_typeProperties_accountName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
